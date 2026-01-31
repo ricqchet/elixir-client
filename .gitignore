@@ -1,0 +1,22 @@
+# Build artifacts
+_build/
+deps/
+cover/
+doc/
+*.ez
+*.tar
+
+# Crash dumps
+erl_crash.dump
+
+# Dialyzer
+priv/plts/
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Conductor
+.context/
