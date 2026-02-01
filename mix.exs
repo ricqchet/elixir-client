@@ -49,14 +49,47 @@ defmodule Ricqchet.MixProject do
       licenses: ["MIT"],
       links: %{
         "GitHub" => @source_url
-      }
+      },
+      files: ~w(lib docs .formatter.exs mix.exs README.md CHANGELOG.md LICENSE)
     ]
   end
 
   defp docs do
     [
       main: "readme",
-      extras: ["README.md", "CHANGELOG.md"]
+      extras: [
+        "README.md",
+        "CHANGELOG.md",
+        "docs/configuration.md",
+        "docs/testing.md",
+        "docs/webhook-verification.md"
+      ],
+      groups_for_extras: [
+        Guides: [
+          "docs/configuration.md",
+          "docs/testing.md",
+          "docs/webhook-verification.md"
+        ]
+      ],
+      groups_for_modules: [
+        Client: [
+          Ricqchet,
+          Ricqchet.Client,
+          Ricqchet.Config,
+          Ricqchet.Error
+        ],
+        "Webhook Verification": [
+          Ricqchet.Verification
+        ],
+        Testing: [
+          Ricqchet.Testing,
+          Ricqchet.Adapters.Test
+        ],
+        Adapters: [
+          Ricqchet.Client.Adapter,
+          Ricqchet.Client.HTTP
+        ]
+      ]
     ]
   end
 end
