@@ -46,7 +46,7 @@ defmodule Ricqchet.MixProject do
     [
       precommit: [
         "compile --warnings-as-errors",
-        "deps.unlock --unused",
+        "deps.unlock --check-unused",
         "format",
         "credo --strict",
         "dialyzer",
@@ -57,7 +57,8 @@ defmodule Ricqchet.MixProject do
 
   defp dialyzer do
     [
-      plt_add_apps: [:ex_unit]
+      plt_add_apps: [:ex_unit],
+      plt_file_path: "priv/plts"
     ]
   end
 
